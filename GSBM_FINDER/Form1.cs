@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using Newtonsoft.Json.Linq;
+using System.Media;
 
 
 namespace GSBM_FINDER
@@ -22,6 +23,8 @@ namespace GSBM_FINDER
         //Thread Th_M_2;
         //Thread Th_M_5;
         Thread Th_FIND_M_1;
+        Thread Th_FIND_M_2;
+        Thread Th_FIND_M_5;
 
         List<GSBM_DATA> DATA_M_1 = new List<GSBM_DATA>();
         List<GSBM_DATA> DATA_M_2 = new List<GSBM_DATA>();
@@ -68,6 +71,14 @@ namespace GSBM_FINDER
             Th_FIND_M_1 = new Thread(FIND_M_1);
             Th_FIND_M_1.Priority = ThreadPriority.Normal;
             Th_FIND_M_1.Start();
+
+            Th_FIND_M_2 = new Thread(FIND_M_2);
+            Th_FIND_M_2.Priority = ThreadPriority.Normal;
+            Th_FIND_M_2.Start();
+
+            Th_FIND_M_5 = new Thread(FIND_M_5);
+            Th_FIND_M_5.Priority = ThreadPriority.Normal;
+            Th_FIND_M_5.Start();
         }
 
 
@@ -77,54 +88,300 @@ namespace GSBM_FINDER
             while (true)
             {
                 GC.Collect();
-                if (DATA_M_1 != null)
+                if (DATA_M_1.Count == 15)
                 {
-                    int DO_COUNT = 0;
-                    int SU_COUNT = 0;
+                    int count = 0;
 
-                    for (int i = 0; i < DATA_M_1.Count; i++)
+                    if (DATA_M_1[0].state == "0")
                     {
-                        if (i == 0)
+                        int index = 2;
+                        if (DATA_M_1[1].result == DATA_M_1[index].result)
                         {
-                            if (DATA_M_1[i].state == "0")
+                            index += 1;
+                            if (DATA_M_1[1].result == DATA_M_1[index].result)
                             {
-                                continue;
-                            }
-                            else
-                            {
-                                if (DATA_M_1[i].result == "매수")
+                                index += 1;
+                                count = 2;
+
+                                if (DATA_M_1[0].result == DATA_M_1[index].result)
                                 {
-                                    SU_COUNT += 1;
-                                }
-                                else if (DATA_M_1[i].result == "매도")
-                                {
-                                    DO_COUNT += 1;
+                                    index += 1;
+                                    count = 3;
+                                    if (DATA_M_1[0].result == DATA_M_1[index].result)
+                                    {
+                                        index += 1;
+                                        count = 4;
+                                        if (DATA_M_1[0].result == DATA_M_1[index].result)
+                                        {
+                                            index += 1;
+                                            count = 5;
+                                        }
+                                    }
                                 }
                             }
                         }
-                        else
+                        
+
+                        if (DATA_M_1[1].result == "매수")
                         {
-                            if (DATA_M_1[i].result == "매수")
-                            {
-                                SU_COUNT += 1;
-                                if (DO_COUNT == 0 && SU_COUNT >= CHECK_COUNT)
-                                {
-                                    SetLabelText(label5, string.Format("{0}DO 발생", DO_COUNT));
-                                    break;
-                                }
-                            }
-                            else if (DATA_M_1[i].result == "매도")
-                            {
-                                DO_COUNT += 1;
-                                if (SU_COUNT == 0 && DO_COUNT >= CHECK_COUNT)
-                                {
-                                    SetLabelText(label5, string.Format("{0}SU 발생", SU_COUNT));
-                                    break;
-                                }
-                            }
+                            SetLabelText(label5, string.Format("SU : {0}", count));
+                        }
+                        else if (DATA_M_1[1].result == "매도")
+                        {
+                            SetLabelText(label5, string.Format("DO : {0}", count));
                         }
                     }
+                    else
+                    {
+                        int index = 1;
+                        if (DATA_M_1[0].result == DATA_M_1[index].result)
+                        {
+                            count = 2;
+                            index += 1;
+                            if (DATA_M_1[0].result == DATA_M_1[index].result)
+                            {
+                                index += 1;
+                                count = 3;
 
+                                if (DATA_M_1[0].result == DATA_M_1[index].result)
+                                {
+                                    index += 1;
+                                    count = 4;
+                                    if (DATA_M_1[0].result == DATA_M_1[index].result)
+                                    {
+                                        index += 1;
+                                        count = 5;
+                                        if (DATA_M_1[0].result == DATA_M_1[index].result)
+                                        {
+                                            index += 1;
+                                            count = 6;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        if(DATA_M_1[1].result == "매수")
+                        {
+                            SetLabelText(label5, string.Format("SU : {0}", count));
+                        }
+                        else if(DATA_M_1[1].result == "매도")
+                        {
+                            SetLabelText(label5, string.Format("DO : {0}", count));
+                        }
+
+                        if (count > 0)
+                        {
+                            string PATH = System.Environment.CurrentDirectory.ToString();
+                            SoundPlayer wp = new SoundPlayer(PATH + @"\1분.wav");
+                            wp.Play();
+                        }
+                        
+                    }
+                }
+                Thread.Sleep(1000 * 10);
+            }
+        }
+
+        public void FIND_M_2()
+        {
+            int CHECK_COUNT = 2;
+            while (true)
+            {
+                GC.Collect();
+                if (DATA_M_2.Count == 15)
+                {
+                    int count = 0;
+
+                    if (DATA_M_2[0].state == "0")
+                    {
+                        int index = 2;
+                        if (DATA_M_2[1].result == DATA_M_2[index].result)
+                        {
+                            index += 1;
+                            if (DATA_M_2[1].result == DATA_M_2[index].result)
+                            {
+                                index += 1;
+
+                                count = 2;
+
+                                if (DATA_M_2[0].result == DATA_M_2[index].result)
+                                {
+                                    index += 1;
+                                    count = 3;
+                                    if (DATA_M_2[0].result == DATA_M_2[index].result)
+                                    {
+                                        index += 1;
+                                        count = 4;
+                                        if (DATA_M_2[0].result == DATA_M_2[index].result)
+                                        {
+                                            index += 1;
+                                            count = 5;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+
+                        if (DATA_M_2[1].result == "매수")
+                        {
+                            SetLabelText(label6, string.Format("SU : {0}", count));
+                        }
+                        else if (DATA_M_2[1].result == "매도")
+                        {
+                            SetLabelText(label6, string.Format("DO : {0}", count));
+                        }
+                    }
+                    else
+                    {
+                        int index = 1;
+                        if (DATA_M_2[0].result == DATA_M_2[index].result)
+                        {
+                            count = 2;
+                            index += 1;
+                            if (DATA_M_2[0].result == DATA_M_2[index].result)
+                            {
+                                index += 1;
+                                count = 3;
+
+                                if (DATA_M_2[0].result == DATA_M_2[index].result)
+                                {
+                                    index += 1;
+                                    count = 4;
+                                    if (DATA_M_2[0].result == DATA_M_2[index].result)
+                                    {
+                                        index += 1;
+                                        count = 5;
+                                        if (DATA_M_2[0].result == DATA_M_2[index].result)
+                                        {
+                                            index += 1;
+                                            count = 6;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        if (DATA_M_2[1].result == "매수")
+                        {
+                            SetLabelText(label6, string.Format("SU : {0}", count));
+                        }
+                        else if (DATA_M_2[1].result == "매도")
+                        {
+                            SetLabelText(label6, string.Format("DO : {0}", count));
+                        }
+
+                        if (count > 0)
+                        {
+                            string PATH = System.Environment.CurrentDirectory.ToString();
+                            SoundPlayer wp = new SoundPlayer(PATH + @"\2분.wav");
+                            wp.Play();
+                        }
+
+                    }
+                }
+                Thread.Sleep(1000 * 10);
+            }
+        }
+
+
+        public void FIND_M_5()
+        {
+            int CHECK_COUNT = 2;
+            while (true)
+            {
+                GC.Collect();
+                if (DATA_M_5.Count == 15)
+                {
+                    int count = 0;
+
+                    if (DATA_M_5[0].state == "0")
+                    {
+                        int index = 2;
+                        if (DATA_M_5[1].result == DATA_M_5[index].result)
+                        {
+                            index += 1;
+                            if (DATA_M_5[1].result == DATA_M_5[index].result)
+                            {
+                                index += 1;
+                                count = 2;
+
+                                if (DATA_M_5[0].result == DATA_M_5[index].result)
+                                {
+                                    index += 1;
+                                    count = 3;
+                                    if (DATA_M_5[0].result == DATA_M_5[index].result)
+                                    {
+                                        index += 1;
+                                        count = 4;
+                                        if (DATA_M_5[0].result == DATA_M_5[index].result)
+                                        {
+                                            index += 1;
+                                            count = 5;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+
+                        if (DATA_M_5[1].result == "매수")
+                        {
+                            SetLabelText(label7, string.Format("SU : {0}", count));
+                        }
+                        else if (DATA_M_5[1].result == "매도")
+                        {
+                            SetLabelText(label7, string.Format("DO : {0}", count));
+                        }
+                    }
+                    else
+                    {
+                        int index = 1;
+                        if (DATA_M_5[0].result == DATA_M_5[index].result)
+                        {
+                            count = 2;
+                            index += 1;
+                            if (DATA_M_5[0].result == DATA_M_5[index].result)
+                            {
+                                index += 1;
+                                count = 3;
+
+                                if (DATA_M_5[0].result == DATA_M_5[index].result)
+                                {
+                                    index += 1;
+                                    count = 4;
+                                    if (DATA_M_5[0].result == DATA_M_5[index].result)
+                                    {
+                                        index += 1;
+                                        count = 5;
+                                        if (DATA_M_5[0].result == DATA_M_5[index].result)
+                                        {
+                                            index += 1;
+                                            count = 6;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        if (DATA_M_5[1].result == "매수")
+                        {
+                            SetLabelText(label7, string.Format("SU : {0}", count));
+                        }
+                        else if (DATA_M_5[1].result == "매도")
+                        {
+                            SetLabelText(label7, string.Format("DO : {0}", count));
+                        }
+
+                        if (count > 0)
+                        {
+                            string PATH = System.Environment.CurrentDirectory.ToString();
+                            SoundPlayer wp = new SoundPlayer(PATH + @"\5분.wav");
+                            wp.Play();
+                        }
+
+                    }
                 }
                 Thread.Sleep(1000 * 10);
             }
@@ -258,7 +515,7 @@ namespace GSBM_FINDER
                 GSBM_temp.game_time = Convert.ToString(data_temp["game_time"]);
                 GSBM_temp.high_price = Convert.ToString(data_temp["high_price"]);
                 GSBM_temp.low_price = Convert.ToString(data_temp["low_price"]);
-                GSBM_temp.MINUTE = "1";
+                GSBM_temp.MINUTE = "2";
                 GSBM_temp.result = Convert.ToString(data_temp["result"]);
                 GSBM_temp.start_price = Convert.ToString(data_temp["start_price"]);
                 GSBM_temp.state = Convert.ToString(data_temp["state"]);
@@ -287,7 +544,7 @@ namespace GSBM_FINDER
                 GSBM_temp.game_time = Convert.ToString(data_temp["game_time"]);
                 GSBM_temp.high_price = Convert.ToString(data_temp["high_price"]);
                 GSBM_temp.low_price = Convert.ToString(data_temp["low_price"]);
-                GSBM_temp.MINUTE = "1";
+                GSBM_temp.MINUTE = "5";
                 GSBM_temp.result = Convert.ToString(data_temp["result"]);
                 GSBM_temp.start_price = Convert.ToString(data_temp["start_price"]);
                 GSBM_temp.state = Convert.ToString(data_temp["state"]);
@@ -384,6 +641,18 @@ namespace GSBM_FINDER
             {
                 Th_FIND_M_1.Abort();
                 Th_FIND_M_1.Join();
+            }
+
+            if (Th_FIND_M_2.IsAlive)
+            {
+                Th_FIND_M_2.Abort();
+                Th_FIND_M_2.Join();
+            }
+
+            if (Th_FIND_M_5.IsAlive)
+            {
+                Th_FIND_M_5.Abort();
+                Th_FIND_M_5.Join();
             }
 
             
