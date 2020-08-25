@@ -53,6 +53,11 @@ namespace GSBM_FINDER
 
         public void init()
         {
+
+            comboBox1.Text = "3";
+            comboBox2.Text = "3";
+            comboBox3.Text = "3";
+
             Th_TIME = new Thread(TIMECLOCK);
             Th_TIME.Priority = ThreadPriority.Highest;
 
@@ -115,6 +120,31 @@ namespace GSBM_FINDER
                                         {
                                             index += 1;
                                             count = 5;
+                                            if (DATA_M_1[0].result == DATA_M_1[index].result)
+                                            {
+                                                index += 1;
+                                                count = 6;
+                                                if (DATA_M_1[0].result == DATA_M_1[index].result)
+                                                {
+                                                    index += 1;
+                                                    count = 7;
+                                                    if (DATA_M_1[0].result == DATA_M_1[index].result)
+                                                    {
+                                                        index += 1;
+                                                        count = 8;
+                                                        if (DATA_M_1[0].result == DATA_M_1[index].result)
+                                                        {
+                                                            index += 1;
+                                                            count = 9;
+                                                            if (DATA_M_1[0].result == DATA_M_1[index].result)
+                                                            {
+                                                                index += 1;
+                                                                count = 10;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -155,6 +185,26 @@ namespace GSBM_FINDER
                                         {
                                             index += 1;
                                             count = 6;
+                                            if (DATA_M_1[0].result == DATA_M_1[index].result)
+                                            {
+                                                index += 1;
+                                                count = 7;
+                                                if (DATA_M_1[0].result == DATA_M_1[index].result)
+                                                {
+                                                    index += 1;
+                                                    count = 8;
+                                                    if (DATA_M_1[0].result == DATA_M_1[index].result)
+                                                    {
+                                                        index += 1;
+                                                        count = 9;
+                                                        if (DATA_M_1[0].result == DATA_M_1[index].result)
+                                                        {
+                                                            index += 1;
+                                                            count = 10;
+                                                        }
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -170,11 +220,13 @@ namespace GSBM_FINDER
                             SetLabelText(label5, string.Format("DO : {0}", count));
                         }
 
-                        if (count > 0)
+                        //if (count > 0)
+                        if (count >=  Convert.ToInt32(comboBox1.Text))
                         {
                             string PATH = System.Environment.CurrentDirectory.ToString();
                             SoundPlayer wp = new SoundPlayer(PATH + @"\1분.wav");
                             wp.Play();
+                            MessageBox.Show("1");
                         }
                         
                     }
@@ -217,6 +269,31 @@ namespace GSBM_FINDER
                                         {
                                             index += 1;
                                             count = 5;
+                                            if (DATA_M_2[0].result == DATA_M_2[index].result)
+                                            {
+                                                index += 1;
+                                                count = 6;
+                                                if (DATA_M_2[0].result == DATA_M_2[index].result)
+                                                {
+                                                    index += 1;
+                                                    count = 7;
+                                                    if (DATA_M_2[0].result == DATA_M_2[index].result)
+                                                    {
+                                                        index += 1;
+                                                        count = 8;
+                                                        if (DATA_M_2[0].result == DATA_M_2[index].result)
+                                                        {
+                                                            index += 1;
+                                                            count = 9;
+                                                            if (DATA_M_2[0].result == DATA_M_2[index].result)
+                                                            {
+                                                                index += 1;
+                                                                count = 10;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -257,6 +334,26 @@ namespace GSBM_FINDER
                                         {
                                             index += 1;
                                             count = 6;
+                                            if (DATA_M_2[0].result == DATA_M_2[index].result)
+                                            {
+                                                index += 1;
+                                                count = 7;
+                                                if (DATA_M_2[0].result == DATA_M_2[index].result)
+                                                {
+                                                    index += 1;
+                                                    count = 8;
+                                                    if (DATA_M_2[0].result == DATA_M_2[index].result)
+                                                    {
+                                                        index += 1;
+                                                        count = 9;
+                                                        if (DATA_M_2[0].result == DATA_M_2[index].result)
+                                                        {
+                                                            index += 1;
+                                                            count = 10;
+                                                        }
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -272,11 +369,13 @@ namespace GSBM_FINDER
                             SetLabelText(label6, string.Format("DO : {0}", count));
                         }
 
-                        if (count > 0)
+                        //if (count > 0)
+                        if (count >= Convert.ToInt32(comboBox2.Text))
                         {
                             string PATH = System.Environment.CurrentDirectory.ToString();
                             SoundPlayer wp = new SoundPlayer(PATH + @"\2분.wav");
                             wp.Play();
+                            MessageBox.Show("2");
                         }
 
                     }
@@ -319,6 +418,31 @@ namespace GSBM_FINDER
                                         {
                                             index += 1;
                                             count = 5;
+                                            if (DATA_M_5[0].result == DATA_M_5[index].result)
+                                            {
+                                                index += 1;
+                                                count = 6;
+                                                if (DATA_M_5[0].result == DATA_M_5[index].result)
+                                                {
+                                                    index += 1;
+                                                    count = 7;
+                                                    if (DATA_M_5[0].result == DATA_M_5[index].result)
+                                                    {
+                                                        index += 1;
+                                                        count = 8;
+                                                        if (DATA_M_5[0].result == DATA_M_5[index].result)
+                                                        {
+                                                            index += 1;
+                                                            count = 9;
+                                                            if (DATA_M_5[0].result == DATA_M_5[index].result)
+                                                            {
+                                                                index += 1;
+                                                                count = 10;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -359,6 +483,26 @@ namespace GSBM_FINDER
                                         {
                                             index += 1;
                                             count = 6;
+                                            if (DATA_M_5[0].result == DATA_M_5[index].result)
+                                            {
+                                                index += 1;
+                                                count = 7;
+                                                if (DATA_M_5[0].result == DATA_M_5[index].result)
+                                                {
+                                                    index += 1;
+                                                    count = 8;
+                                                    if (DATA_M_5[0].result == DATA_M_5[index].result)
+                                                    {
+                                                        index += 1;
+                                                        count = 9;
+                                                        if (DATA_M_5[0].result == DATA_M_5[index].result)
+                                                        {
+                                                            index += 1;
+                                                            count = 10;
+                                                        }
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -374,11 +518,13 @@ namespace GSBM_FINDER
                             SetLabelText(label7, string.Format("DO : {0}", count));
                         }
 
-                        if (count > 0)
+                        //if (count > 0)
+                        if (count >= Convert.ToInt32(comboBox3.Text))
                         {
                             string PATH = System.Environment.CurrentDirectory.ToString();
                             SoundPlayer wp = new SoundPlayer(PATH + @"\5분.wav");
                             wp.Play();
+                            MessageBox.Show("5");
                         }
 
                     }

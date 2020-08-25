@@ -11,3 +11,14 @@ c:\users\aj_jin\documents\visual studio 2012\Projects\GSBM_FINDER\GSBM_FINDER\ob
 c:\users\aj_jin\documents\visual studio 2012\Projects\GSBM_FINDER\GSBM_FINDER\bin\Release\Newtonsoft.Json.dll
 c:\users\aj_jin\documents\visual studio 2012\Projects\GSBM_FINDER\GSBM_FINDER\bin\Release\Newtonsoft.Json.pdb
 c:\users\aj_jin\documents\visual studio 2012\Projects\GSBM_FINDER\GSBM_FINDER\bin\Release\Newtonsoft.Json.xml
+D:\git_test\GSBM_FINDER\GSB_FINDER\GSBM_FINDER\bin\Release\GSBM_FINDER.exe.config
+D:\git_test\GSBM_FINDER\GSB_FINDER\GSBM_FINDER\obj\Release\GSBM_FINDER.exe
+D:\git_test\GSBM_FINDER\GSB_FINDER\GSBM_FINDER\obj\Release\GSBM_FINDER.pdb
+D:\git_test\GSBM_FINDER\GSB_FINDER\GSBM_FINDER\bin\Release\GSBM_FINDER.exe
+D:\git_test\GSBM_FINDER\GSB_FINDER\GSBM_FINDER\bin\Release\GSBM_FINDER.pdb
+D:\git_test\GSBM_FINDER\GSB_FINDER\GSBM_FINDER\bin\Release\Newtonsoft.Json.dll
+D:\git_test\GSBM_FINDER\GSB_FINDER\GSBM_FINDER\obj\Release\GSBM_FINDER.csprojResolveAssemblyReference.cache
+D:\git_test\GSBM_FINDER\GSB_FINDER\GSBM_FINDER\obj\Release\GSBM_FINDER.Form1.resources
+D:\git_test\GSBM_FINDER\GSB_FINDER\GSBM_FINDER\obj\Release\GSBM_FINDER.Properties.Resources.resources
+D:\git_test\GSBM_FINDER\GSB_FINDER\GSBM_FINDER\obj\Release\GSBM_FINDER.UserControl1.resources
+D:\git_test\GSBM_FINDER\GSB_FINDER\GSBM_FINDER\obj\Release\GSBM_FINDER.csproj.GenerateResource.Cache
